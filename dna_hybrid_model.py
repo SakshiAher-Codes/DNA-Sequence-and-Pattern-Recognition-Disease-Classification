@@ -56,8 +56,8 @@ def build_feature_matrix(df, motifs):
     return X
 
 # ------------------ Model Training ------------------
-def train_model(csv_path, model_path="disease_classifier.joblib"):
-    df = pd.read_csv("./dna_disease_dataset.csv")
+def train_model(csv_path, model_path=".models/disease_classifier.joblib"):
+    df = pd.read_csv("./data/raw/dna_disease_dataset.csv")
     df["dna_sequence"] = df["dna_sequence"].str.upper().str.replace(" ", "")
     motifs = ["ATG", "CGT", "AAA", "TGC", "GGA"]  # Common 3-mer patterns
     X = build_feature_matrix(df, motifs)
@@ -69,18 +69,18 @@ def train_model(csv_path, model_path="disease_classifier.joblib"):
     print(f"✅ Model trained and saved to {model_path}")
 
 # ------------------ Load or Train Once ------------------
-MODEL_PATH = "disease_classifier.joblib"
+MODEL_PATH = "./models/disease_classifier.joblib"
 if not os.path.exists(MODEL_PATH):
     st.info("Training model from provided dataset...")
     # ⚠️ Update this path to your CSV file
-    train_model("dna_disease_dataset.csv")
+    train_model("./data/raw/dna_disease_dataset.csv")
 
 saved = joblib.load(MODEL_PATH)
 model = saved["model"]
 encoder = saved["encoder"]
 motifs = saved["motifs"]
 
-# ------------------ Streamlit Doctor UI ------------------
+# ------------------ Streamlit UI ------------------
 st.set_page_config(page_title="DNA Disease Classifier", layout="centered")
 st.title("🧬 DNA Disease Classifier")
 st.write("This tool analyzes DNA sequences to predict the likely disease category based on trained genomic patterns.")
