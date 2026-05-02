@@ -88,9 +88,13 @@ streamlit run dna_hybrid_model.py
 
 ## 📸 Screenshots
 
-*Add screenshots of your Streamlit app here (recommended)*
+Healthy:
+<img width="577" height="769" alt="image" src="https://github.com/user-attachments/assets/dd69141f-c44e-4fde-bed5-78e56d76e6d1" />
 
----
+Unhealthy:
+<img width="552" height="693" alt="image" src="https://github.com/user-attachments/assets/e7e22e71-1f66-44b0-8099-756e352cc67b" />
+
+
 
 ## 🌐 Deployment
 
