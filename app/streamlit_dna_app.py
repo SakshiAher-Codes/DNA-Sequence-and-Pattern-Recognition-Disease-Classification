@@ -1,11 +1,10 @@
-# Save this as a separate file, e.g., app.py
 import streamlit as st
 import joblib
 import numpy as np
 from itertools import groupby
 
-# Load the trained model
-model = joblib.load('dna_classifier.pkl')
+
+model = joblib.load("models/disease_classifier.joblib")
 
 
 # KMP algorithm for pattern searching (same as backend)
