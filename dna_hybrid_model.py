@@ -72,7 +72,6 @@ def train_model(csv_path, model_path=".models/disease_classifier.joblib"):
 MODEL_PATH = "./models/disease_classifier.joblib"
 if not os.path.exists(MODEL_PATH):
     st.info("Training model from provided dataset...")
-    # ⚠️ Update this path to your CSV file
     train_model("./data/raw/dna_disease_dataset.csv")
 
 saved = joblib.load(MODEL_PATH)
